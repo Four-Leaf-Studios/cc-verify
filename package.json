@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/four-leaf-studios/cc-verify.git"
+    "url": "https://github.com/Four-Leaf-Studios/cc-verify"
   },
   "homepage": "https://github.com/four-leaf-studios/cc-verify#readme",
   "bugs": {
