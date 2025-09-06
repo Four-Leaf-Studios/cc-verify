@@ -5,12 +5,16 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
+    "build": "npm run clean && vite build && npm run build:types",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "clean": "rimraf dist",
+    "build:types": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^12.1.4",
     "@vitest/coverage-v8": "^3.2.4",
+    "rimraf": "^6.0.1",
     "rollup": "^4.50.0",
     "typescript": "~5.8.3",
     "vite": "^7.1.4",
@@ -18,10 +22,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Four-Leaf-Studios/cc-verify.git"
+    "url": "https://github.com/four-leaf-studios/cc-verify.git"
   },
-  "homepage": "https://github.com/Four-Leaf-Studios/cc-verify#readme",
+  "homepage": "https://github.com/four-leaf-studios/cc-verify#readme",
   "bugs": {
-    "url": "https://github.com/Four-Leaf-Studios/cc-verify/issues"
+    "url": "https://github.com/four-leaf-studios/cc-verify/issues"
+  },
+  "main": "dist/cc-verify.cjs.js",
+  "module": "dist/cc-verify.es.js",
+  "types": "dist/types/index.d.ts",
+  "exports": {
+    "import": "./dist/cc-verify.es.js",
+    "require": "./dist/cc-verify.cjs.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
   }
 }
