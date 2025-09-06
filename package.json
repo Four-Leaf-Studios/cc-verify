@@ -15,5 +15,13 @@
     "typescript": "~5.8.3",
     "vite": "^7.1.4",
     "vitest": "^3.2.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Four-Leaf-Studios/cc-verify.git"
+  },
+  "homepage": "https://github.com/Four-Leaf-Studios/cc-verify#readme",
+  "bugs": {
+    "url": "https://github.com/Four-Leaf-Studios/cc-verify/issues"
   }
 }
