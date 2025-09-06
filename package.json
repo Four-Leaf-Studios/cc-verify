@@ -27,12 +27,25 @@
   "bugs": {
     "url": "https://github.com/four-leaf-studios/cc-verify/issues"
   },
-  "main": "dist/cc-verify.cjs.js",
-  "module": "dist/cc-verify.es.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
   "types": "dist/types/index.d.ts",
   "exports": {
-    "import": "./dist/cc-verify.es.js",
-    "require": "./dist/cc-verify.cjs.js"
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/types/index.d.ts"
+    },
+    "./brands": {
+      "import": "./dist/brands.es.js",
+      "require": "./dist/brands.cjs.js",
+      "types": "./dist/types/brands.d.ts"
+    },
+    "./verify": {
+      "import": "./dist/verify.es.js",
+      "require": "./dist/verify.cjs.js",
+      "types": "./dist/types/ccVerify.d.ts"
+    }
   },
   "files": [
     "dist"

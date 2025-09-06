@@ -17,3 +17,5 @@ export function isValidCard(number: string): boolean {
   }
   return sum % 10 === 0;
 }
+
+export * from "./brands";

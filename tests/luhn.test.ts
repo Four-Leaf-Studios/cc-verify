@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { isValidCard } from "../src/ccVerify";
+import { isValidCard } from "../src/verify";
 
 describe("Luhn-only validator", () => {
   it("accepts valid Luhn numbers regardless of brand", () => {

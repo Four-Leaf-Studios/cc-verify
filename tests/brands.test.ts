@@ -10,7 +10,7 @@ import {
   isUnionPay,
   getBrand,
 } from "../src/brands";
-import { isValidCard } from "../src/ccVerify";
+import { isValidCard } from "../src/verify";
 
 const samples = {
   visa: "4111 1111 1111 1111",

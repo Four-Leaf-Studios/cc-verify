@@ -4,10 +4,14 @@ export default defineConfig({
   plugins: [],
   build: {
     lib: {
-      entry: "src/ccVerify.ts",
-      name: "ccVerify",
+      entry: {
+        index: "src/index.ts", // @four-leaf-studios/cc-verify
+        brands: "src/brands.ts", // @four-leaf-studios/cc-verify/brands
+        verify: "src/verify.ts", // @four-leaf-studios/cc-verify/verify
+      },
       formats: ["es", "cjs"],
-      fileName: (format) => `cc-verify.${format}.js`,
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
+      name: "cc-verify",
     },
   },
 });
