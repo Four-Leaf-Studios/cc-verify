@@ -27,21 +27,21 @@ A lightweight, fast, and reliable TypeScript/JavaScript library for credit card 
 ## Installation
 
 ```bash
-npm install your-package-name
+npm install @four-leaf-studios/cc-verify
 ```
 
 ```bash
-yarn add your-package-name
+yarn add @four-leaf-studios/cc-verify
 ```
 
 ```bash
-pnpm add your-package-name
+pnpm add @four-leaf-studios/cc-verify
 ```
 
 ## Quick Start
 
 ```typescript
-import { isValidCard, getBrand } from "your-package-name";
+import { isValidCard, getBrand } from "@four-leaf-studios/cc-verify";
 
 // Validate a credit card number
 const isValid = isValidCard("4532 1234 5678 9012");
@@ -78,7 +78,7 @@ import {
   isJcb,
   isUnionPay,
   isMaestro,
-} from "your-package-name";
+} from "@four-leaf-studios/cc-verify";
 
 isVisa("4532123456789012"); // true
 isAmex("378282246310005"); // true
@@ -111,7 +111,7 @@ getBrand("1234567890123456"); // 'unknown'
 ### Basic Validation
 
 ```typescript
-import { isValidCard, getBrand } from "your-package-name";
+import { isValidCard, getBrand } from "@four-leaf-studios/cc-verify";
 
 function validateCreditCard(input: string) {
   const brand = getBrand(input);
@@ -135,7 +135,7 @@ console.log(validateCreditCard("4532-1234-5678-9012"));
 ### Form Validation
 
 ```typescript
-import { isValidCard, getBrand } from "your-package-name";
+import { isValidCard, getBrand } from "@four-leaf-studios/cc-verify";
 
 class CreditCardValidator {
   static validate(cardNumber: string) {
