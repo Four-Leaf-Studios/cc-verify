@@ -1,5 +1,5 @@
-import { getBrand, isValidCard } from "@four-leaf-studios/cc-verify";
-import React, { useState } from "react";
+import { useState } from "react";
+import { getBrand, isValidCard } from "../src";
 
 const brands = [
   { name: "Visa", pattern: "4xxx", length: "13, 16, 19" },
