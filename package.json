@@ -21,7 +21,9 @@
     "rollup": "^4.50.0",
     "typescript": "~5.8.3",
     "vite": "^7.1.4",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   },
   "repository": {
     "type": "git",
@@ -37,18 +39,25 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js",
-      "types": "./dist/types/index.d.ts"
+      "require": "./dist/index.cjs.js"
     },
     "./brands": {
       "import": "./dist/brands.es.js",
-      "require": "./dist/brands.cjs.js",
-      "types": "./dist/types/brands.d.ts"
+      "require": "./dist/brands.cjs.js"
     },
     "./verify": {
       "import": "./dist/verify.es.js",
-      "require": "./dist/verify.cjs.js",
-      "types": "./dist/types/ccVerify.d.ts"
+      "require": "./dist/verify.cjs.js"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "brands": [
+        "dist/types/brands.d.ts"
+      ],
+      "verify": [
+        "dist/types/verify.d.ts"
+      ]
     }
   },
   "files": [
@@ -57,9 +66,5 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
-  },
-  "dependencies": {
-    "react": "^19.1.1",
-    "react-dom": "^19.1.1"
   }
 }
