@@ -3,15 +3,19 @@
   "version": "0.0.7",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "npm run clean && vite build && npm run build:types",
-    "preview": "vite preview",
+    "dev": "vite --config vite.demo.config.ts",
+    "build:lib": "npm run clean && vite build && npm run build:types",
+    "build:demo": "vite build --config vite.demo.config.ts",
+    "preview:demo": "vite preview --config vite.demo.config.ts",
     "test": "vitest run",
-    "clean": "rimraf dist",
+    "clean": "rimraf dist dist-demo",
     "build:types": "tsc -p tsconfig.build.json"
   },
   "devDependencies": {
     "@rollup/plugin-typescript": "^12.1.4",
+    "@types/react": "^19.1.14",
+    "@types/react-dom": "^19.1.9",
+    "@vitejs/plugin-react": "^5.0.4",
     "@vitest/coverage-v8": "^3.2.4",
     "rimraf": "^6.0.1",
     "rollup": "^4.50.0",
@@ -53,5 +57,9 @@
   "license": "MIT",
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
   }
 }

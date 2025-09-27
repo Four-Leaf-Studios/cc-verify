@@ -1,4 +1,4 @@
-name: Publish to npm
+name: Publish & Demo
 
 on:
   # Publish when you push a version tag like v0.1.0
@@ -10,6 +10,8 @@ on:
 permissions:
   contents: read
   id-token: write # for npm provenance
+  pages: write # for GitHub Pages (demo deploy)
+  actions: read
 
 jobs:
   publish:
@@ -30,11 +32,46 @@ jobs:
       - name: Test
         run: npm run test
 
-      - name: Build
-        run: npm run build
+      - name: Build Library
+        run: npm run build:lib
 
-      - name: Publish
+      - name: Publish to npm
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_PROVENANCE: true
         run: npm publish --access public --provenance
+
+  demo:
+    runs-on: ubuntu-latest
+    needs: publish # only run if publish succeeds
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install
+        run: npm ci
+
+      - name: Build Demo
+        run: npm run build:demo
+
+      # OPTIONAL: Deploy demo to GitHub Pages
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist-demo
+
+  deploy-pages:
+    runs-on: ubuntu-latest
+    needs: demo
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
